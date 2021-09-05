@@ -24,6 +24,9 @@
     });
 
     holder.append(card.elem);
+
+    card.elem.addEventListener('product-add', event => {console.log('выбран:',event.detail); });
+
   </script>
 </body>
 
