@@ -219,8 +219,8 @@ export default class Cart {
       method: 'POST',
       body: fd}).then(response => { 
       if (response.ok) {
-        document.body.querySelector('.modal__title').innerHTML = 'Success!';
-        document.body.querySelector('.modal__body').innerHTML = newBody;
+        this.modal.setTitle('Success!');
+        this.modal._modelModal.querySelector('.modal__body').innerHTML = newBody;
         this.cartItems = [];
         this.cartIcon.update(this);
       } 
