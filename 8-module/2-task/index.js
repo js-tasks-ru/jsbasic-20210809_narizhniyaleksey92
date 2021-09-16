@@ -32,11 +32,11 @@ export default class ProductGrid {
     }
 
     if(this.filters.hasOwnProperty('noNuts') && this.filters.noNuts == true) {
-      sortedProducts = sortedProducts.filter(val => val.hasOwnProperty('nuts')? false : true);
+      sortedProducts = sortedProducts.filter(val => val.nuts == true ? false : true);
     }
 
     if(this.filters.hasOwnProperty('vegeterianOnly') && this.filters.vegeterianOnly == true) {
-      sortedProducts = sortedProducts.filter(val => val.hasOwnProperty('vegeterian')? true: false);  
+      sortedProducts = sortedProducts.filter(val => val.vegeterian == true ? true: false);  
     }
 
     if(this.filters.hasOwnProperty('maxSpiciness')) {

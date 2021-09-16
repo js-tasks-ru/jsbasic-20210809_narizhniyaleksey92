@@ -88,13 +88,17 @@ moveRibbon = (event) => {
   let clientWidth = ribbonInner.clientWidth;
   let scrollRight = scrollWidth - scrollLeft - clientWidth;
 
-  if (scrollLeft < 0) {
-    target.closest('.ribbon').querySelector('.ribbon__arrow_left').classList.remove("ribbon__arrow_visible");
-  } else if (scrollRight < 0) {
-    target.closest('.ribbon').querySelector('.ribbon__arrow_right').classList.toggle("ribbon__arrow_visible");
-  } else {
+  if (scrollLeft > 0) {
     target.closest('.ribbon').querySelector('.ribbon__arrow_left').classList.add("ribbon__arrow_visible");
-    target.closest('.ribbon').querySelector('.ribbon__arrow_right').classList.add("ribbon__arrow_visible");
+  } else {
+    target.closest('.ribbon').querySelector('.ribbon__arrow_left').classList.remove("ribbon__arrow_visible");
   }
+  
+  if (scrollRight > 1) {
+    target.closest('.ribbon').querySelector('.ribbon__arrow_right').classList.add("ribbon__arrow_visible");
+  } else {
+    target.closest('.ribbon').querySelector('.ribbon__arrow_right').classList.remove("ribbon__arrow_visible");
+  }
+
 }
 }

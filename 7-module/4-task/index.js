@@ -1,8 +1,9 @@
 import createElement from '../../assets/lib/create-element.js';
 
 export default class StepSlider {
-  constructor({ steps, value = 0 }) {
+  constructor({ steps, value}) {
     this.steps = steps;
+    this.value = value;
     this.elem = this.render();
   }
 
@@ -10,22 +11,27 @@ export default class StepSlider {
     let steps = '';
 
     for (let i = 0; i < this.steps; i++) {
-      if (i == 0) { steps += '<span class="slider__step-active"></span>';
+      if (i == this.value) { steps += '<span class="slider__step-active"></span>';
       } else { steps += '<span></span>';}
             
     }
 
+    let formula = this.value / (this.steps - 1) * 100;
+
     this.slider = createElement(`
         <div class="slider">
-          <div class="slider__thumb" style="left: 50%;">
-            <span class="slider__value">2</span>
+          <div class="slider__thumb" style="left: ${formula}%;">
+            <span class="slider__value">${this.value}</span>
           </div>
-          <div class="slider__progress" style="width: 50%;"></div>
+          <div class="slider__progress" style="width: ${formula}%;"></div>
           <div class="slider__steps">
           ${steps}
           </div>
         </div>`);
      
+    
+
+
 
     this.thumb = this.slider.querySelector('.slider__thumb');
 
